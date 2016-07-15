@@ -1,0 +1,49 @@
+AppBundle\Entity\CompanyHasAgreement:
+    type: entity
+    table: company_has_agreement
+    indexes:
+        fk_Agreement_has_Company_Company1_idx:
+            columns:
+                - company_id
+        fk_agree_has_buyer:
+            columns:
+                - buyer
+        fk_agree_has_payer:
+            columns:
+                - payer
+        IDX_73E2EA1624890B2B:
+            columns:
+                - agreement
+    id:
+        companyId:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: company_id
+        buyer:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: buyer
+        payer:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: payer
+        agreement:
+            associationKey: true
+    oneToOne:
+        agreement:
+            targetEntity: Agreement
+            cascade: ["all"]
+            mappedBy: null
+            inversedBy: null
+            onDelete: CASCADE
+            joinColumn:
+                  name: agreement
+                  onDelete: CASCADE
+                  referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,62 @@
+sonata_user:
+    security_acl: true
+    manager_type: orm
+
+sonata_block:
+    default_contexts: [sonata_page_bundle]
+    blocks:
+        sonata.admin.block.admin_list:
+          contexts:   [admin]
+
+        sonata.user.block.menu:
+        sonata.user.block.account:
+        sonata.block.service.text:
+
+sonata_admin:
+    title:                'Dokify Challenge'
+    title_logo: /bundles/app/images/logo-ccip.svg
+    dashboard:
+      blocks:
+        - { position: left, type: sonata.admin.block.admin_list }
+      groups:
+        sonata_user:
+          label: Administrator Users
+          items: ~
+          roles: [ ROLE_ADMIN ]
+        Registros:
+          label: Registros
+          items:
+              - sonata.admin.custom.list
+              - sonata.admin.company
+              - sonata.admin.company_agreement
+              - sonata.admin.agreement
+          item_adds: ~
+          roles: [ ROLE_USER ]
+    templates:
+        #layout:                     SonataAdminBundle::layout.html.twig
+        list:                       SonataAdminBundle:CRUD:list.html.twig
+        action:                     SonataAdminBundle:CRUD:action.html.twig
+        select:                     SonataAdminBundle:CRUD:list__select.html.twig
+        list_block:                 SonataAdminBundle:Block:block_admin_list.html.twig
+        short_object_description:   SonataAdminBundle:Helper:short-object-description.html.twig
+        batch:                      SonataAdminBundle:CRUD:list__batch.html.twig
+        inner_list_row:             SonataAdminBundle:CRUD:list_inner_row.html.twig
+        base_list_field:            SonataAdminBundle:CRUD:base_list_field.html.twig
+        pager_links:                SonataAdminBundle:Pager:links.html.twig
+        pager_results:              SonataAdminBundle:Pager:results.html.twig
+    assets:
+        stylesheets:
+            - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
+            - bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css
+            - bundles/sonatacore/vendor/ionicons/css/ionicons.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css
+            - bundles/sonataadmin/vendor/iCheck/skins/square/blue.css
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+            - bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
+            - bundles/sonatacore/vendor/select2/select2.css
+            - bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
+            - bundles/sonataadmin/css/styles.css
+            - bundles/sonataadmin/css/layout.css
+            - bundles/sonataadmin/css/tree.css

@@ -1,0 +1,24 @@
+AppBundle\Entity\CustomList:
+    type: entity
+    table: CustomList
+    id:
+        empresa:
+            type: string
+            nullable: false
+            length: 255
+            id: true
+            column: empresa
+        relacion:
+            type: string
+            nullable: false
+            length: 255
+            id: true
+            column: relacion
+        vinculo:
+            type: string
+            nullable: false
+            length: 255
+            id: true
+            column: vinculo
+    lifecycleCallbacks: {  }
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <services>
+
+
+
+        <service id="sonata.admin.agreement" class="AppBundle\Admin\AgreementAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Empresas" label="Contratos" />
+            <argument />
+            <argument>AppBundle\Entity\Agreement</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+
+        <service id="sonata.admin.company_agreement" class="AppBundle\Admin\CompanyAgreementAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Empresas" label="Vinculos" />
+            <argument />
+            <argument>AppBundle\Entity\CompanyHasAgreement</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+
+        <service id="sonata.admin.company" class="AppBundle\Admin\CompanyAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Empresas" label="Empresas" />
+            <argument />
+            <argument>AppBundle\Entity\Company</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+
+        <service id="sonata.admin.custom.list" class="AppBundle\Admin\CustomListAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Registros" label="Listado de Relaciones" />
+            <argument />
+            <argument>AppBundle\Entity\CustomList</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+
+        <service id="sonata.pool.admin.twig" class="AppBundle\Twig\Extension\PoolExtension" public="false">
+            <argument type="service" id="sonata.admin.pool" />
+            <tag name="twig.extension" />
+        </service>
+
+    </services>
+
+
+
+</container>

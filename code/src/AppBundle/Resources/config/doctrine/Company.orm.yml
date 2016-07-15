@@ -1,0 +1,51 @@
+AppBundle\Entity\Company:
+    type: entity
+    table: company
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+    manyToMany:
+        clients:
+            targetEntity: Company
+            cascade: {  }
+            mappedBy: null
+            inversedBy: root
+            joinTable:
+                name: client
+                joinColumns:
+                    -
+                        name: root_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: child_id
+                        referencedColumnName: id
+            orderBy: null
+        providers:
+            targetEntity: Company
+            cascade: {  }
+            mappedBy: null
+            inversedBy: root
+            joinTable:
+                name: provider
+                joinColumns:
+                    -
+                        name: root_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: child_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

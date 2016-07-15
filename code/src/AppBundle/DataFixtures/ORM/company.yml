@@ -1,0 +1,15 @@
+AppBundle\Entity\Company:
+    company_{1..5}:
+        name: <company()>
+        clients: ["@company_<identity($fake('current')+5)>"]
+        providers: ["@company_<identity($fake('current')+1)>"]
+    company_{6..10}:
+        name: <company()>
+        providers: ["@company_<identity($fake('current')-1)>"]
+AppBundle\Entity\Agreement:
+    agreement_{1..10}:
+        name: 'Contrato <word()>'
+
+
+
+

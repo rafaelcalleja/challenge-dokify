@@ -1,0 +1,21 @@
+AppBundle\Entity\CompanyHasAgreement:
+    company_agreement{1..5}:
+        agreement: '@agreement_1'
+        buyer: "@company_<identity($fake('current')+1)>->id"
+        payer: "@company_<identity($fake('current')+5)>->id"
+        companyId:  "@company_<identity($fake('current'))>->id"
+    company_agreement{6..10}:
+        agreement: '@agreement_1'
+        buyer: "@company_<identity($fake('current'))>->id"
+        payer: "@company_<identity($fake('current')-4)>->id"
+        companyId:  "@company_<identity($fake('current')-5)>->id"
+    company_agreement{11..15}:
+        agreement: '@agreement_<numberBetween($min = 2, $max = 10)>'
+        buyer: "@company_<identity($fake('current')-9)>->id"
+        payer: "@company_<identity($fake('current')-5)>->id"
+        companyId:  "@company_<identity($fake('current')-10)>->id"
+    company_agreement{16..20}:
+        agreement: '@agreement_<numberBetween($min = 3, $max = 10)>'
+        buyer: "@company_<identity($fake('current')-14)>->id"
+        payer: "@company_<identity($fake('current')-10)>->id"
+        companyId:  "@company_<identity($fake('current')-15)>->id"
