@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the ccip  package.
+ * This file is part of the dokify challenge app package.
  *
  * (c) Rafael Calleja <rafaelcalleja@gmail.com>
  *
@@ -10,9 +10,6 @@
  */
 
 namespace AppBundle\Entity;
-
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  */
@@ -104,7 +101,6 @@ class CustomList
 
     public function __toString()
     {
-        return sprintf("[%s (%s <> %s )]", $this->vinculo(), $this->empresa(), $this->relacion());
+        return sprintf('[%s (%s <> %s )]', $this->vinculo(), $this->empresa(), $this->relacion());
     }
-
 }

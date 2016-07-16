@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the ccip package.
+ * This file is part of the dokify challenge app package.
  *
  * (c) Rafael Calleja <rafaelcalleja@gmail.com>
  *
@@ -17,10 +17,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
-
 class AgreementAdmin extends Admin
 {
-
     /**
      * Default Datagrid values.
      *
@@ -66,5 +64,4 @@ class AgreementAdmin extends Admin
         $formMapper
             ->add('name');
     }
-
 }

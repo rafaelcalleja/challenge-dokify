@@ -1,26 +1,33 @@
 <?php
 
+/*
+ * This file is part of the dokify challenge app package.
+ *
+ * (c) Rafael Calleja <rafaelcalleja@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * CompanyHasAgreement
+ * CompanyHasAgreement.
  */
 class CompanyHasAgreement
 {
     /**
-     * @var integer
+     * @var int
      */
     private $companyId;
 
     /**
-     * @var integer
+     * @var int
      */
     private $buyer;
 
     /**
-     * @var integer
+     * @var int
      */
     private $payer;
 
@@ -29,11 +36,11 @@ class CompanyHasAgreement
      */
     private $agreement;
 
-
     /**
-     * Set companyId
+     * Set companyId.
      *
-     * @param integer $companyId
+     * @param int $companyId
+     *
      * @return CompanyHasAgreement
      */
     public function setCompanyId($companyId)
@@ -44,9 +51,9 @@ class CompanyHasAgreement
     }
 
     /**
-     * Get companyId
+     * Get companyId.
      *
-     * @return integer 
+     * @return int
      */
     public function getCompanyId()
     {
@@ -54,9 +61,10 @@ class CompanyHasAgreement
     }
 
     /**
-     * Set buyer
+     * Set buyer.
      *
-     * @param integer $buyer
+     * @param int $buyer
+     *
      * @return CompanyHasAgreement
      */
     public function setBuyer($buyer)
@@ -67,9 +75,9 @@ class CompanyHasAgreement
     }
 
     /**
-     * Get buyer
+     * Get buyer.
      *
-     * @return integer 
+     * @return int
      */
     public function getBuyer()
     {
@@ -77,9 +85,10 @@ class CompanyHasAgreement
     }
 
     /**
-     * Set payer
+     * Set payer.
      *
-     * @param integer $payer
+     * @param int $payer
+     *
      * @return CompanyHasAgreement
      */
     public function setPayer($payer)
@@ -90,9 +99,9 @@ class CompanyHasAgreement
     }
 
     /**
-     * Get payer
+     * Get payer.
      *
-     * @return integer 
+     * @return int
      */
     public function getPayer()
     {
@@ -100,9 +109,10 @@ class CompanyHasAgreement
     }
 
     /**
-     * Set agreement
+     * Set agreement.
      *
      * @param \AppBundle\Entity\Agreement $agreement
+     *
      * @return CompanyHasAgreement
      */
     public function setAgreement(\AppBundle\Entity\Agreement $agreement = null)
@@ -113,9 +123,9 @@ class CompanyHasAgreement
     }
 
     /**
-     * Get agreement
+     * Get agreement.
      *
-     * @return \AppBundle\Entity\Agreement 
+     * @return \AppBundle\Entity\Agreement
      */
     public function getAgreement()
     {
@@ -124,6 +134,6 @@ class CompanyHasAgreement
 
     public function __toString()
     {
-        return sprintf("[%s (%s <> %s ) %s]", $this->getCompanyId(), $this->getBuyer(), $this->getPayer(), $this->getAgreement());
+        return sprintf('[%s (%s <> %s ) %s]', $this->getCompanyId(), $this->getBuyer(), $this->getPayer(), $this->getAgreement());
     }
 }

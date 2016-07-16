@@ -1,16 +1,23 @@
 <?php
 
+/*
+ * This file is part of the dokify challenge app package.
+ *
+ * (c) Rafael Calleja <rafaelcalleja@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * Company
+ * Company.
  */
 class Company
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -30,7 +37,7 @@ class Company
     private $providers;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -39,9 +46,9 @@ class Company
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -49,9 +56,10 @@ class Company
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Company
      */
     public function setName($name)
@@ -62,9 +70,9 @@ class Company
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -72,9 +80,10 @@ class Company
     }
 
     /**
-     * Add clients
+     * Add clients.
      *
      * @param \AppBundle\Entity\Company $clients
+     *
      * @return Company
      */
     public function addClient(\AppBundle\Entity\Company $clients)
@@ -85,7 +94,7 @@ class Company
     }
 
     /**
-     * Remove clients
+     * Remove clients.
      *
      * @param \AppBundle\Entity\Company $clients
      */
@@ -95,9 +104,9 @@ class Company
     }
 
     /**
-     * Get clients
+     * Get clients.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getClients()
     {
@@ -105,9 +114,10 @@ class Company
     }
 
     /**
-     * Add providers
+     * Add providers.
      *
      * @param \AppBundle\Entity\Company $providers
+     *
      * @return Company
      */
     public function addProvider(\AppBundle\Entity\Company $providers)
@@ -118,7 +128,7 @@ class Company
     }
 
     /**
-     * Remove providers
+     * Remove providers.
      *
      * @param \AppBundle\Entity\Company $providers
      */
@@ -128,9 +138,9 @@ class Company
     }
 
     /**
-     * Get providers
+     * Get providers.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getProviders()
     {

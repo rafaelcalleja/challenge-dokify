@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the ccip package.
+ * This file is part of the dokify challenge app package.
  *
  * (c) Rafael Calleja <rafaelcalleja@gmail.com>
  *
@@ -17,10 +17,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
-
 class CompanyAgreementAdmin extends Admin
 {
-
     /**
      * Default Datagrid values.
      *
@@ -40,33 +38,33 @@ class CompanyAgreementAdmin extends Admin
         $filterMapper
             ->add('agreement')
             ->add('companyId', 'doctrine_orm_choice', array(
-                'label' => 'Company',
+                'label'         => 'Company',
                 'field_options' => array(
-                    'choices' => $this->getCompanies(),
+                    'choices'  => $this->getCompanies(),
                     'required' => false,
                     'multiple' => false,
                     'expanded' => false,
-                    'attr'=> ['data-sonata-select2-minimun-input'=> 2 ]
+                    'attr'     => array('data-sonata-select2-minimun-input' => 2),
                 ),
-                'field_type' => 'choice'))
+                'field_type' => 'choice', ))
             ->add('buyer', 'doctrine_orm_choice', array(
                 'field_options' => array(
-                    'choices' => $this->getCompanies(),
+                    'choices'  => $this->getCompanies(),
                     'required' => false,
                     'multiple' => false,
                     'expanded' => false,
-                    'attr'=> ['data-sonata-select2-minimun-input'=> 2 ]
+                    'attr'     => array('data-sonata-select2-minimun-input' => 2),
                 ),
-                'field_type' => 'choice'))
+                'field_type' => 'choice', ))
             ->add('payer', 'doctrine_orm_choice', array(
                 'field_options' => array(
-                    'choices' => $this->getCompanies(),
+                    'choices'  => $this->getCompanies(),
                     'required' => false,
                     'multiple' => false,
                     'expanded' => false,
-                    'attr'=> ['data-sonata-select2-minimun-input'=> 2 ]
+                    'attr'     => array('data-sonata-select2-minimun-input' => 2),
                 ),
-                'field_type' => 'choice'))
+                'field_type' => 'choice', ))
         ;
     }
 
@@ -96,18 +94,18 @@ class CompanyAgreementAdmin extends Admin
     {
         $formMapper
             ->add('agreement')
-            ->add('companyId', 'choice', [
+            ->add('companyId', 'choice', array(
                 'multiple' => false,
-                'choices' => $this->getCompanies()
-            ])
-            ->add('buyer', 'choice', [
+                'choices'  => $this->getCompanies(),
+            ))
+            ->add('buyer', 'choice', array(
                 'multiple' => false,
-                'choices' => $this->getCompanies()
-            ])
-            ->add('payer', 'choice', [
+                'choices'  => $this->getCompanies(),
+            ))
+            ->add('payer', 'choice', array(
                 'multiple' => false,
-                'choices' => $this->getCompanies()
-            ])
+                'choices'  => $this->getCompanies(),
+            ))
         ;
     }
 
@@ -127,8 +125,7 @@ class CompanyAgreementAdmin extends Admin
         foreach ($arrayType as $dataRow) {
             $data [$dataRow['id']] = $dataRow['name'];
         }
+
         return $data;
-
     }
-
 }

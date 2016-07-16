@@ -1,16 +1,23 @@
 <?php
 
+/*
+ * This file is part of the dokify challenge app package.
+ *
+ * (c) Rafael Calleja <rafaelcalleja@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * Agreement
+ * Agreement.
  */
 class Agreement
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -19,11 +26,10 @@ class Agreement
      */
     private $name;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -31,9 +37,10 @@ class Agreement
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Agreement
      */
     public function setName($name)
@@ -44,9 +51,9 @@ class Agreement
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {

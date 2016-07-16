@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the ccip package.
+ * This file is part of the dokify challenge app package.
  *
  * (c) Rafael Calleja <rafaelcalleja@gmail.com>
  *
@@ -15,12 +15,9 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
-
 
 class CompanyAdmin extends Admin
 {
-
     /**
      * Default Datagrid values.
      *
@@ -67,5 +64,4 @@ class CompanyAdmin extends Admin
             ->add('providers')
         ;
     }
-
 }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the ccip package.
+ * This file is part of the dokify challenge app package.
  *
  * (c) Rafael Calleja <rafaelcalleja@gmail.com>
  *
@@ -17,10 +17,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
-
 class CustomListAdmin extends Admin
 {
-
     /**
      * Default Datagrid values.
      *
@@ -40,10 +38,10 @@ class CustomListAdmin extends Admin
         $fields = array(
             'empresa',
             'relacion',
-            'vinculo'
+            'vinculo',
         );
 
-        array_map(function($field) use($filterMapper){
+        array_map(function ($field) use ($filterMapper) {
             $filterMapper->add($field);
         }, $fields);
     }
@@ -72,5 +70,4 @@ class CustomListAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
     }
-
 }
