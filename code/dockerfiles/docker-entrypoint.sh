@@ -26,5 +26,6 @@ setfacl -dR -m u:www-data:rwX -m u:root:rwX /var/www/html/app/cache/
 setfacl -R -m u:www-data:rwX -m u:root:rwX /var/www/html/app/logs/
 setfacl -dR -m u:www-data:rwX -m u:root:rwX /var/www/html/app/logs/
 mv /CustomList.orm.yml /var/www/html/src/AppBundle/Resources/config/doctrine/CustomList.orm.yml
+composer dokify-cmd
 
 exec "$@"
