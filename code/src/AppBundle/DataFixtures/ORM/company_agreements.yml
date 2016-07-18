@@ -1,21 +1,21 @@
 AppBundle\Entity\CompanyHasAgreement:
     company_agreement{1..5}:
         agreement: '@agreement_1'
-        buyer: "@company_<identity($fake('current')+1)>->id"
-        payer: "@company_<identity($fake('current')+5)>->id"
-        companyId:  "@company_<identity($fake('current'))>->id"
+        buyer: "@company_<identity($fake('current')+1)>"
+        payer: "@company_<identity($fake('current')+5)>"
+        companyId:  "@company_<identity($fake('current'))>"
     company_agreement{6..10}:
         agreement: '@agreement_1'
-        buyer: "@company_<identity($fake('current'))>->id"
-        payer: "@company_<identity($fake('current')-4)>->id"
-        companyId:  "@company_<identity($fake('current')-5)>->id"
+        buyer: "@company_<identity($fake('current'))>"
+        payer: "@company_<identity($fake('current')-4)>"
+        companyId:  "@company_<identity($fake('current')-5)>"
     company_agreement{11..15}:
         agreement: '@agreement_<numberBetween($min = 2, $max = 10)>'
-        buyer: "@company_<identity($fake('current')-9)>->id"
-        payer: "@company_<identity($fake('current')-5)>->id"
-        companyId:  "@company_<identity($fake('current')-10)>->id"
+        buyer: "@company_<identity($fake('current')-9)>"
+        payer: "@company_<identity($fake('current')-5)>"
+        companyId:  "@company_<identity($fake('current')-10)>"
     company_agreement{16..20}:
         agreement: '@agreement_<numberBetween($min = 3, $max = 10)>'
-        buyer: "@company_<identity($fake('current')-14)>->id"
-        payer: "@company_<identity($fake('current')-10)>->id"
-        companyId:  "@company_<identity($fake('current')-15)>->id"
+        buyer: "@company_<identity($fake('current')-14)>"
+        payer: "@company_<identity($fake('current')-10)>"
+        companyId:  "@company_<identity($fake('current')-15)>"

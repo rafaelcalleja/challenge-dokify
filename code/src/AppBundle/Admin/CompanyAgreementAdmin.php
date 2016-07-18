@@ -15,7 +15,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 
 class CompanyAgreementAdmin extends Admin
 {
@@ -37,41 +36,10 @@ class CompanyAgreementAdmin extends Admin
     {
         $filterMapper
             ->add('agreement')
-            ->add('companyId', 'doctrine_orm_choice', array(
-                'label'         => 'Company',
-                'field_options' => array(
-                    'choices'  => $this->getCompanies(),
-                    'required' => false,
-                    'multiple' => false,
-                    'expanded' => false,
-                    'attr'     => array('data-sonata-select2-minimun-input' => 2),
-                ),
-                'field_type' => 'choice', ))
-            ->add('buyer', 'doctrine_orm_choice', array(
-                'field_options' => array(
-                    'choices'  => $this->getCompanies(),
-                    'required' => false,
-                    'multiple' => false,
-                    'expanded' => false,
-                    'attr'     => array('data-sonata-select2-minimun-input' => 2),
-                ),
-                'field_type' => 'choice', ))
-            ->add('payer', 'doctrine_orm_choice', array(
-                'field_options' => array(
-                    'choices'  => $this->getCompanies(),
-                    'required' => false,
-                    'multiple' => false,
-                    'expanded' => false,
-                    'attr'     => array('data-sonata-select2-minimun-input' => 2),
-                ),
-                'field_type' => 'choice', ))
+            ->add('companyId')
+            ->add('buyer')
+            ->add('payer')
         ;
-    }
-
-    protected function configureRoutes(RouteCollection $collection)
-    {
-        // OR remove all route except named ones
-        //$collection->clearExcept(array('list', 'export'));
     }
 
     /**
@@ -81,9 +49,9 @@ class CompanyAgreementAdmin extends Admin
     {
         $listMapper
             ->add('agreement')
-            ->addIdentifier('companyId', 'string', array('label' => 'Company', 'template' => 'AppBundle::list_custom.html.twig'))
-            ->add('buyer', 'string', array('template' => 'AppBundle::list_custom.html.twig'))
-            ->add('payer', 'string', array('template' => 'AppBundle::list_custom.html.twig'))
+            ->addIdentifier('companyId', null, array('label' => 'Company'))
+            ->add('buyer')
+            ->add('payer')
             ;
     }
 
@@ -94,38 +62,9 @@ class CompanyAgreementAdmin extends Admin
     {
         $formMapper
             ->add('agreement')
-            ->add('companyId', 'choice', array(
-                'multiple' => false,
-                'choices'  => $this->getCompanies(),
-            ))
-            ->add('buyer', 'choice', array(
-                'multiple' => false,
-                'choices'  => $this->getCompanies(),
-            ))
-            ->add('payer', 'choice', array(
-                'multiple' => false,
-                'choices'  => $this->getCompanies(),
-            ))
+            ->add('companyId')
+            ->add('buyer')
+            ->add('payer')
         ;
-    }
-
-    protected function getCompanies()
-    {
-        $em = $this->modelManager->getEntityManager('AppBundle\Entity\Company');
-
-        $qb = $em->createQueryBuilder();
-
-        $qb = $qb->select('PARTIAL u.{id, name}')
-            ->add('from', 'AppBundle\Entity\Company u');
-
-        $query = $qb->getQuery();
-        $arrayType = $query->getArrayResult();
-
-        $data  = array();
-        foreach ($arrayType as $dataRow) {
-            $data [$dataRow['id']] = $dataRow['name'];
-        }
-
-        return $data;
     }
 }

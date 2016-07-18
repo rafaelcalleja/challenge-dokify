@@ -16,34 +16,44 @@ AppBundle\Entity\CompanyHasAgreement:
                 - agreement
     id:
         companyId:
-            type: integer
-            nullable: false
-            unsigned: false
-            id: true
-            column: company_id
+            associationKey: true
         buyer:
-            type: integer
-            nullable: false
-            unsigned: false
-            id: true
-            column: buyer
+            associationKey: true
         payer:
-            type: integer
-            nullable: false
-            unsigned: false
-            id: true
-            column: payer
+            associationKey: true
         agreement:
             associationKey: true
-    oneToOne:
+    manyToOne:
         agreement:
             targetEntity: Agreement
-            cascade: ["all"]
-            mappedBy: null
-            inversedBy: null
+            cascade: ["persist"]
             onDelete: CASCADE
             joinColumn:
-                  name: agreement
-                  onDelete: CASCADE
-                  referencedColumnName: id
+              name: agreement
+              onDelete: CASCADE
+              referencedColumnName: id
+        companyId:
+            targetEntity: Company
+            cascade: ["persist"]
+            onDelete: CASCADE
+            joinColumn:
+              name: company_id
+              onDelete: CASCADE
+              referencedColumnName: id
+        payer:
+            targetEntity: Company
+            cascade: ["persist"]
+            onDelete: CASCADE
+            joinColumn:
+              name: payer
+              onDelete: CASCADE
+              referencedColumnName: id
+        buyer:
+            targetEntity: Company
+            cascade: ["persist"]
+            onDelete: CASCADE
+            joinColumn:
+              name: buyer
+              onDelete: CASCADE
+              referencedColumnName: id
     lifecycleCallbacks: {  }

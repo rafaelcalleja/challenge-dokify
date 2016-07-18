@@ -12,7 +12,7 @@ EOF;
 Symfony\CS\Fixer\Contrib\HeaderCommentFixer::setHeader($header);
 
 $finder = Symfony\CS\Finder\DefaultFinder::create()
-    ->in(array(__DIR__))
+    ->in(array(__DIR__.'/src/', __DIR__.'/tests/'))
     ->exclude(array('Tests/Fixtures', 'vendor'))
 ;
 
