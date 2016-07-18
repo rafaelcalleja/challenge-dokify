@@ -1,8 +1,0 @@
-{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
-
-{% block field%}
-    {% set myobject = object_by_admin_and_code('sonata.admin.company',  attribute(object, field_description.name )) %}
-    {% if myobject|default(false) %}
-        <b><a href="{{ admin_and_code('sonata.admin.company').generateUrl('edit', {'id' : myobject.id }) }}">{{ myobject.name }}</a></b>
-    {% endif %}
-{% endblock %}

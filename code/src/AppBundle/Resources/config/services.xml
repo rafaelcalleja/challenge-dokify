@@ -6,9 +6,6 @@
 
 
     <services>
-
-
-
         <service id="sonata.admin.agreement" class="AppBundle\Admin\AgreementAdmin">
             <tag name="sonata.admin" manager_type="orm" group="Empresas" label="Contratos" />
             <argument />
@@ -36,14 +33,5 @@
             <argument>AppBundle\Entity\CustomList</argument>
             <argument>SonataAdminBundle:CRUD</argument>
         </service>
-
-        <service id="sonata.pool.admin.twig" class="AppBundle\Twig\Extension\PoolExtension" public="false">
-            <argument type="service" id="sonata.admin.pool" />
-            <tag name="twig.extension" />
-        </service>
-
     </services>
-
-
-
 </container>
