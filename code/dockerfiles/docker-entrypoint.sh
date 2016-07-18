@@ -2,6 +2,7 @@
 BBDD=${MYSQL_BBDD:-mydb}
 USER=${MYSQL_USER:-admin}
 PASS=${MYSQL_PASSWORD:-admin}
+ROOTPASS=${MYSQL_ROOT_PASSWORD:-password}
 RET=1
 while [[ RET -ne 0 ]]; do
     echo "=> Waiting for confirmation of MySQL service startup"
@@ -9,6 +10,8 @@ while [[ RET -ne 0 ]]; do
     mysql -u$USER -p$PASS -hdb -e "status" > /dev/null 2>&1
     RET=$?
 done
+mysql -uroot -p$ROOTPASS -hdb -e "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
+
 mv /var/www/html/src/AppBundle/Resources/config/doctrine/CustomList.orm.yml /CustomList.orm.yml
 UPDATE=$(/var/www/html/app/console doctrine:schema:update -n);
 
