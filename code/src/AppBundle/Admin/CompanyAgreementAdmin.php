@@ -25,8 +25,8 @@ class CompanyAgreementAdmin extends Admin
      */
     protected $datagridValues = array(
         '_page'       => 1,            // display the first page (default = 1)
-        '_sort_order' => 'DESC', // reverse order (default = 'ASC')
-        '_sort_by'    => 'id',  // name of the ordered field
+        '_sort_order' => 'ASC', // reverse order (default = 'ASC')
+        '_sort_by'    => 'agreement.name',  // name of the ordered field
     );
 
     /**
@@ -48,10 +48,10 @@ class CompanyAgreementAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('agreement')
-            ->addIdentifier('companyId', null, array('label' => 'Company'))
-            ->add('buyer')
-            ->add('payer')
+            ->add('agreement.name')
+            ->addIdentifier('companyId.name', null, array('label' => 'Company'))
+            ->add('buyer.name')
+            ->add('payer.name')
             ;
     }
 
@@ -66,5 +66,15 @@ class CompanyAgreementAdmin extends Admin
             ->add('buyer')
             ->add('payer')
         ;
+    }
+
+    public function getExportFields()
+    {
+        return array(
+            'agreement.name',
+            'companyId.name',
+            'buyer.name',
+            'payer.name'
+        );
     }
 }
